@@ -1,0 +1,23 @@
+# macOS system files
+.DS_Store
+
+# Python specific
+__pycache__/
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.coverage
+*.log
+
+# Build and distribution
+build/
+dist/
+
+# IDE/Editor specific
+.vscode/
+.idea/
+
+*.pyc
