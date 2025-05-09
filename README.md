@@ -17,7 +17,7 @@ pip install .
 You can install it directly from Github using:
 
 ```bash
-pip install git+https://github.com/yourusername/dir2json.git
+pip install git+https://github.com/parmsam/dir2json-py.git
 ```
 
 ## Usage
