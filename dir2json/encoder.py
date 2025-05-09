@@ -35,12 +35,14 @@ def json_encode_dir(
             'type': 'binary' if 'binary' in file_types else 'text'
         }
 
-        if 'binary' in file_types and not file.suffix.lower() in text_file_extensions():
+        if 'binary' in file_types and file.suffix.lower() not in text_file_extensions():
             with open(file, 'rb') as f:
                 file_info['content'] = base64.b64encode(f.read()).decode('utf-8')
+                file_info['type'] = 'binary'
         elif 'text' in file_types:
             with open(file, 'r', encoding='utf-8', errors='ignore') as f:
                 file_info['content'] = f.read()
+                file_info['type'] = 'text'
 
         if metadata:
             if 'file_size' in metadata:
