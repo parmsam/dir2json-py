@@ -24,7 +24,8 @@ def json_encode_dir(
     files = [f for f in Path(directory).rglob('*') if f.is_file()]
 
     if ignore:
-        files = [f for f in files if f.name not in ignore]
+        ignore_set = set(ignore)  # Convert ignore list to set for faster lookup
+        files = [f for f in files if f.name not in ignore_set]
 
     bundle = []
 
@@ -32,25 +33,31 @@ def json_encode_dir(
         file_info = {
             'name': str(file.relative_to(directory)),
             'content': None,
-            'type': 'binary' if 'binary' in file_types else 'text'
+            'type': None
         }
+        normalized_suffix = file.suffix.lower().lstrip('.')  # Normalize suffix by stripping the leading dot
+        try:
+            if normalized_suffix in text_file_extensions():
+                if 'text' in file_types:
+                    with open(file, 'r', encoding='utf-8', errors='ignore') as f:
+                        file_info['content'] = f.read()
+                        file_info['type'] = 'text'
+            elif 'binary' in file_types:
+                with open(file, 'rb') as f:
+                    file_info['content'] = base64.b64encode(f.read()).decode('utf-8')
+                    file_info['type'] = 'binary'
 
-        if 'binary' in file_types and file.suffix.lower() not in text_file_extensions():
-            with open(file, 'rb') as f:
-                file_info['content'] = base64.b64encode(f.read()).decode('utf-8')
-                file_info['type'] = 'binary'
-        elif 'text' in file_types:
-            with open(file, 'r', encoding='utf-8', errors='ignore') as f:
-                file_info['content'] = f.read()
-                file_info['type'] = 'text'
+            if metadata:
+                if 'file_size' in metadata:
+                    file_info['file_size'] = file.stat().st_size
+                if 'creation_time' in metadata:
+                    file_info['creation_time'] = file.stat().st_ctime
+                if 'last_modified_time' in metadata:
+                    file_info['last_modified_time'] = file.stat().st_mtime
 
-        if metadata:
-            if 'file_size' in metadata:
-                file_info['file_size'] = file.stat().st_size
-            if 'creation_time' in metadata:
-                file_info['creation_time'] = file.stat().st_ctime
-            if 'last_modified_time' in metadata:
-                file_info['last_modified_time'] = file.stat().st_mtime
+        except Exception as e:
+            print(f"Error reading file {file}: {e}")
+            continue
 
         bundle.append(file_info)
 
@@ -58,7 +65,7 @@ def json_encode_dir(
 
 def text_file_extensions():
     """Return a list of common text file extensions."""
-    return [
+    return {
         "r", "rmd", "rnw", "rpres", "rhtml", "qmd",
         "py", "ipynb", "js", "ts", "jl", "sas",
         "html", "css", "scss", "less", "sass",
@@ -69,4 +76,4 @@ def text_file_extensions():
         "log", "dcf", "ini", "cfg", "conf", "properties", "env", "envrc",
         "gitignore", "gitattributes", "gitmodules", "gitconfig", "gitkeep",
         "htaccess", "htpasswd", "htgroups", "htdigest"
-    ]
+    }
