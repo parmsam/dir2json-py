@@ -3,6 +3,7 @@
 dir2json is a Python library for encoding and decoding directory structures to and from JSON format.
 
 ## Features
+
 - Encode a directory structure into a JSON string.
 - Decode a JSON string back into a directory structure.
 
@@ -38,7 +39,7 @@ print(json_data)
 from dir2json.decoder import decode_json_to_directory
 
 # Provide the JSON string and the target directory path
-json_data = '{"name": "example.txt", "content": "SGVsbG8gd29ybGQ=", "type": "binary"}'
+json_data = '{"name": "example.txt", "content": "Hello world", "type": "text"}'
 decode_json_to_directory(json_data, '/path/to/target')
 ```
 
