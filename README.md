@@ -42,6 +42,26 @@ json_data = '{"name": "example.txt", "content": "SGVsbG8gd29ybGQ=", "type": "bin
 decode_json_to_directory(json_data, '/path/to/target')
 ```
 
+## CLI Usage
+
+dir2json also provides a command-line interface (CLI) for encoding directories into JSON format.
+
+### Encoding a Directory via CLI
+
+To encode a directory, run the following command:
+
+```bash
+python -m dir2json.cli /path/to/directory --file-types text binary --metadata file_size creation_time --ignore .DS_Store
+```
+
+#### Arguments:
+- `directory`: Path to the directory to encode.
+- `--file-types`: (Optional) Specify file types to include (e.g., `text`, `binary`). Defaults to both.
+- `--metadata`: (Optional) Specify metadata to include (e.g., `file_size`, `creation_time`, `last_modified_time`).
+- `--ignore`: (Optional) List of file names to exclude from encoding.
+
+The encoded JSON will be printed to the console.
+
 ## License
 
 This project is licensed under the MIT License.

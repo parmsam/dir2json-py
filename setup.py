@@ -16,4 +16,9 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'dir2json=dir2json.cli:main',
+        ],
+    },
 )
