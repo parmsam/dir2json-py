@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>home – dir2json</title>
+<title>functions – dir2json</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -297,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../reference/home.html" aria-current="page"> 
+    <a class="nav-link" href="../reference/home.qmd"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -319,118 +284,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">dir2json</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p>dir2json is a Python library for encoding and decoding directory structures to and from JSON format.</p>
-<section id="features" class="level2">
-<h2 class="anchored" data-anchor-id="features">Features</h2>
-<ul>
-<li>Encode a directory structure into a JSON string.</li>
-<li>Decode a JSON string back into a directory structure.</li>
-</ul>
+<section id="function-reference" class="level1 doc doc-index">
+<h1 class="doc doc-index">Function reference</h1>
+<section id="encoder" class="level2">
+<h2 class="anchored" data-anchor-id="encoder">Encoder</h2>
+<p>Encode a directory to JSON</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><a href="../reference/json_encode_dir.html#dir2json.json_encode_dir">json_encode_dir</a></td>
+<td>Encode all files in a directory into a JSON format.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<!-- To install the package, run the following command:
-
-```bash
-pip install .
-``` -->
-<p>You can install it directly from Github using:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/parmsam/dir2json-py.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<section id="encoding-a-directory" class="level3">
-<h3 class="anchored" data-anchor-id="encoding-a-directory">Encoding a Directory</h3>
-<div id="8f072756" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir2json.encoder <span class="im">import</span> json_encode_dir</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's create temp directory for this example</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>temp_dir <span class="op">=</span> tempfile.mkdtemp()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sample file in the temp directory</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(temp_dir, <span class="st">'example1.py'</span>), <span class="st">'w'</span>) <span class="im">as</span> f:</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">'print("Hello, World!")'</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create another sample file</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(temp_dir, <span class="st">'example2.py'</span>), <span class="st">'w'</span>) <span class="im">as</span> f:</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">'print("Hello, again!")'</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the directory path to the function</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>json_data <span class="op">=</span> json_encode_dir(temp_dir, file_types<span class="op">=</span>[<span class="st">'text'</span>])</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[
-    {
-        "name": "example1.py",
-        "content": "print(\"Hello, World!\")",
-        "type": "text"
-    },
-    {
-        "name": "example2.py",
-        "content": "print(\"Hello, again!\")",
-        "type": "text"
-    }
-]</code></pre>
-</div>
-</div>
-</section>
-<section id="decoding-a-json-string" class="level3">
-<h3 class="anchored" data-anchor-id="decoding-a-json-string">Decoding a JSON String</h3>
-<div id="c4b0af0c" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir2json.decoder <span class="im">import</span> json_decode_dir</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the JSON string and the target directory path</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>json_data <span class="op">=</span> <span class="st">'{"name": "example.txt", "content": "Hello world", "type": "text"}'</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>json_decode_dir(json_data, <span class="st">'/path/to/target'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="cli-usage" class="level2">
-<h2 class="anchored" data-anchor-id="cli-usage">CLI Usage</h2>
-<p><code>dir2json</code> also provides a command-line interface (CLI) for encoding directories into JSON format.</p>
-<section id="encoding-a-directory-via-cli" class="level3">
-<h3 class="anchored" data-anchor-id="encoding-a-directory-via-cli">Encoding a Directory via CLI</h3>
-<p>To encode a directory, run the following command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> dir2json.cli /path/to/directory <span class="at">--file-types</span> text binary <span class="at">--metadata</span> file_size creation_time <span class="at">--ignore</span> .DS_Store</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="arguments" class="level4">
-<h4 class="anchored" data-anchor-id="arguments">Arguments:</h4>
-<ul>
-<li><code>directory</code>: Path to the directory to encode.</li>
-<li><code>--file-types</code>: (Optional) Specify file types to include (e.g., <code>text</code>, <code>binary</code>). Defaults to both.</li>
-<li><code>--metadata</code>: (Optional) Specify metadata to include (e.g., <code>file_size</code>, <code>creation_time</code>, <code>last_modified_time</code>).</li>
-<li><code>--ignore</code>: (Optional) List of file names to exclude from encoding.</li>
-</ul>
-<p>The encoded JSON will be printed to the console.</p>
-</section>
-</section>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>This project is licensed under the MIT License.</p>
+<section id="decoder" class="level2">
+<h2 class="anchored" data-anchor-id="decoder">Decoder</h2>
+<p>Decode a JSON file to a directory</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><a href="../reference/json_decode_dir.html#dir2json.json_decode_dir">json_decode_dir</a></td>
+<td>Decode a JSON representation of a directory back into its original structure.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
