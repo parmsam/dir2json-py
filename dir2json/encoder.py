@@ -1,6 +1,7 @@
 import os
 import json
 import base64
+import time
 from pathlib import Path
 
 def json_encode_dir(
@@ -69,11 +70,11 @@ def json_encode_dir(
 
             if metadata:
                 if 'file_size' in metadata:
-                    file_info['file_size'] = file.stat().st_size
+                    file_info['file_size'] = f"{file.stat().st_size} bytes"
                 if 'creation_time' in metadata:
-                    file_info['creation_time'] = file.stat().st_ctime
+                    file_info['creation_time'] = time.ctime(file.stat().st_ctime)
                 if 'last_modified_time' in metadata:
-                    file_info['last_modified_time'] = file.stat().st_mtime
+                    file_info['last_modified_time'] = time.ctime(file.stat().st_mtime)
 
         except Exception as e:
             print(f"Error reading file {file}: {e}")
