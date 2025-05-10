@@ -242,26 +242,5 @@
       "Reference",
       "Function reference"
     ]
-  },
-  {
-    "objectID": "reference/functions.html",
-    "href": "reference/functions.html",
-    "title": "Function reference",
-    "section": "",
-    "text": "Encode a directory to JSON\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format.\n\n\n\n\n\n\nDecode a JSON file to a directory\n\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure."
-  },
-  {
-    "objectID": "reference/functions.html#encoder",
-    "href": "reference/functions.html#encoder",
-    "title": "Function reference",
-    "section": "",
-    "text": "Encode a directory to JSON\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format."
-  },
-  {
-    "objectID": "reference/functions.html#decoder",
-    "href": "reference/functions.html#decoder",
-    "title": "Function reference",
-    "section": "",
-    "text": "Decode a JSON file to a directory\n\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure."
   }
 ]

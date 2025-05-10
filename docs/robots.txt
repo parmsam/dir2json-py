@@ -1,1 +1,1 @@
-Sitemap: https://parmsam.github.io/dir2json-py/sitemap.xml
+Sitemap: https://parmsam.github.io/dir2json-py/reference/home.html/sitemap.xml

@@ -8,14 +8,16 @@ metadata-files:
 
 website:
   title: dir2json
-  site-url: https://parmsam.github.io/dir2json-py
+  page-navigation: true
+  site-url: https://parmsam.github.io/dir2json-py/reference/home.html
+  site-path: reference/home.html
   repo-url: https://github.com/parmsam/dir2json-py
   navbar:
     background: primary
     search: true
     left:
       - text: "Home"
-        file: reference/home.qmd
+        href: reference/home.qmd
       - text: "Reference"
         file: reference/index.qmd
     tools:
@@ -24,11 +26,10 @@ website:
 
 quartodoc:
   style: pkgdown
-  dir: reference
   # the name used to import the package you want to create reference docs for
   package: dir2json
   # write sidebar data to this file
-  sidebar: _sidebar.yml
+  # sidebar: _sidebar.yml
   sections:
     - title: Encoder
       desc: Encode a directory to JSON
