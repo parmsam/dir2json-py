@@ -1,0 +1,257 @@
+[
+  {
+    "objectID": "reference/json_encode_dir.html",
+    "href": "reference/json_encode_dir.html",
+    "title": "json_encode_dir",
+    "section": "",
+    "text": "json_encode_dir(\n    directory,\n    file_types=('text', 'binary'),\n    metadata=None,\n    ignore=None,\n)\nEncode all files in a directory into a JSON format.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndirectory\nstr\nPath to the directory to encode.\nrequired\n\n\nfile_types\ntuple of str\nTuple specifying file types to include (‘text’, ‘binary’). Defaults to both.\n('text', 'binary')\n\n\nmetadata\nlist of str\nList of metadata to include (‘file_size’, ‘creation_time’, ‘last_modified_time’). Defaults to None.\nNone\n\n\nignore\nlist of str\nList of file names to exclude from encoding. Defaults to None.\nNone\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nJSON string representing the directory’s contents.\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nValueError\nIf the specified directory does not exist.\n\n\n\n\n\n\n&gt;&gt;&gt; json_encode_dir('/path/to/dir', file_types=('text',), metadata=['file_size'])\n'{\"name\": \"file1.txt\", \"content\": \"Hello, World!\", \"type\": \"text\", \"file_size\": 123}'",
+    "crumbs": [
+      "Reference",
+      "Encoder",
+      "json_encode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_encode_dir.html#parameters",
+    "href": "reference/json_encode_dir.html#parameters",
+    "title": "json_encode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ndirectory\nstr\nPath to the directory to encode.\nrequired\n\n\nfile_types\ntuple of str\nTuple specifying file types to include (‘text’, ‘binary’). Defaults to both.\n('text', 'binary')\n\n\nmetadata\nlist of str\nList of metadata to include (‘file_size’, ‘creation_time’, ‘last_modified_time’). Defaults to None.\nNone\n\n\nignore\nlist of str\nList of file names to exclude from encoding. Defaults to None.\nNone",
+    "crumbs": [
+      "Reference",
+      "Encoder",
+      "json_encode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_encode_dir.html#returns",
+    "href": "reference/json_encode_dir.html#returns",
+    "title": "json_encode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nstr\nJSON string representing the directory’s contents.",
+    "crumbs": [
+      "Reference",
+      "Encoder",
+      "json_encode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_encode_dir.html#raises",
+    "href": "reference/json_encode_dir.html#raises",
+    "title": "json_encode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nValueError\nIf the specified directory does not exist.",
+    "crumbs": [
+      "Reference",
+      "Encoder",
+      "json_encode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_encode_dir.html#examples",
+    "href": "reference/json_encode_dir.html#examples",
+    "title": "json_encode_dir",
+    "section": "",
+    "text": "&gt;&gt;&gt; json_encode_dir('/path/to/dir', file_types=('text',), metadata=['file_size'])\n'{\"name\": \"file1.txt\", \"content\": \"Hello, World!\", \"type\": \"text\", \"file_size\": 123}'",
+    "crumbs": [
+      "Reference",
+      "Encoder",
+      "json_encode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/get_object.html",
+    "href": "reference/get_object.html",
+    "title": "get_object",
+    "section": "",
+    "text": "get_object(\n    path,\n    object_name=None,\n    parser='numpy',\n    load_aliases=True,\n    dynamic=False,\n    loader=None,\n)\nFetch a griffe object.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse\n\n\n\n\n\n\npreview: print a user-friendly preview of a griffe object.\n\n\n\n&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ...\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc"
+  },
+  {
+    "objectID": "reference/get_object.html#parameters",
+    "href": "reference/get_object.html#parameters",
+    "title": "get_object",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse"
+  },
+  {
+    "objectID": "reference/get_object.html#see-also",
+    "href": "reference/get_object.html#see-also",
+    "title": "get_object",
+    "section": "",
+    "text": "preview: print a user-friendly preview of a griffe object."
+  },
+  {
+    "objectID": "reference/get_object.html#examples",
+    "href": "reference/get_object.html#examples",
+    "title": "get_object",
+    "section": "",
+    "text": "&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ..."
+  },
+  {
+    "objectID": "reference/get_object.html#returns",
+    "href": "reference/get_object.html#returns",
+    "title": "get_object",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc"
+  },
+  {
+    "objectID": "reference/home.html",
+    "href": "reference/home.html",
+    "title": "dir2json",
+    "section": "",
+    "text": "dir2json is a Python library for encoding and decoding directory structures to and from JSON format."
+  },
+  {
+    "objectID": "reference/home.html#features",
+    "href": "reference/home.html#features",
+    "title": "dir2json",
+    "section": "Features",
+    "text": "Features\n\nEncode a directory structure into a JSON string.\nDecode a JSON string back into a directory structure."
+  },
+  {
+    "objectID": "reference/home.html#installation",
+    "href": "reference/home.html#installation",
+    "title": "dir2json",
+    "section": "Installation",
+    "text": "Installation\n\nYou can install it directly from Github using:\npip install git+https://github.com/parmsam/dir2json-py.git"
+  },
+  {
+    "objectID": "reference/home.html#usage",
+    "href": "reference/home.html#usage",
+    "title": "dir2json",
+    "section": "Usage",
+    "text": "Usage\n\nEncoding a Directory\n\nimport tempfile\nimport os\nfrom dir2json.encoder import json_encode_dir\n\n# Let's create temp directory for this example\ntemp_dir = tempfile.mkdtemp()\n# Create a sample file in the temp directory\nwith open(os.path.join(temp_dir, 'example1.py'), 'w') as f:\n    f.write('print(\"Hello, World!\")')\n# Create another sample file\nwith open(os.path.join(temp_dir, 'example2.py'), 'w') as f:\n    f.write('print(\"Hello, again!\")')\n# Provide the directory path to the function\njson_data = json_encode_dir(temp_dir, file_types=['text'])\n\nprint(json_data)\n\n[\n    {\n        \"name\": \"example1.py\",\n        \"content\": \"print(\\\"Hello, World!\\\")\",\n        \"type\": \"text\"\n    },\n    {\n        \"name\": \"example2.py\",\n        \"content\": \"print(\\\"Hello, again!\\\")\",\n        \"type\": \"text\"\n    }\n]\n\n\n\n\nDecoding a JSON String\n\nfrom dir2json.decoder import json_decode_dir\n\n# Provide the JSON string and the target directory path\njson_data = '{\"name\": \"example.txt\", \"content\": \"Hello world\", \"type\": \"text\"}'\njson_decode_dir(json_data, '/path/to/target')"
+  },
+  {
+    "objectID": "reference/home.html#cli-usage",
+    "href": "reference/home.html#cli-usage",
+    "title": "dir2json",
+    "section": "CLI Usage",
+    "text": "CLI Usage\ndir2json also provides a command-line interface (CLI) for encoding directories into JSON format.\n\nEncoding a Directory via CLI\nTo encode a directory, run the following command:\npython -m dir2json.cli /path/to/directory --file-types text binary --metadata file_size creation_time --ignore .DS_Store\n\nArguments:\n\ndirectory: Path to the directory to encode.\n--file-types: (Optional) Specify file types to include (e.g., text, binary). Defaults to both.\n--metadata: (Optional) Specify metadata to include (e.g., file_size, creation_time, last_modified_time).\n--ignore: (Optional) List of file names to exclude from encoding.\n\nThe encoded JSON will be printed to the console."
+  },
+  {
+    "objectID": "reference/home.html#license",
+    "href": "reference/home.html#license",
+    "title": "dir2json",
+    "section": "License",
+    "text": "License\nThis project is licensed under the MIT License."
+  },
+  {
+    "objectID": "reference/json_decode_dir.html",
+    "href": "reference/json_decode_dir.html",
+    "title": "json_decode_dir",
+    "section": "",
+    "text": "json_decode_dir(json_data, target_directory)\nDecode a JSON representation of a directory back into its original structure.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\njson_data\nstr\nJSON string representing the directory’s contents.\nrequired\n\n\ntarget_directory\nstr\nPath to the directory where the decoded files will be saved.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nValueError\nIf the JSON data is invalid or the output directory cannot be created.\n\n\n\n\n\n\n&gt;&gt;&gt; json_decode_dir('{\"name\": \"file1.txt\", \"content\": \"Hello, World!\", \"type\": \"text\"}', '/path/to/output')\n# Decodes the JSON and creates the file `file1.txt` in the specified output directory.",
+    "crumbs": [
+      "Reference",
+      "Decoder",
+      "json_decode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_decode_dir.html#parameters",
+    "href": "reference/json_decode_dir.html#parameters",
+    "title": "json_decode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\njson_data\nstr\nJSON string representing the directory’s contents.\nrequired\n\n\ntarget_directory\nstr\nPath to the directory where the decoded files will be saved.\nrequired",
+    "crumbs": [
+      "Reference",
+      "Decoder",
+      "json_decode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_decode_dir.html#returns",
+    "href": "reference/json_decode_dir.html#returns",
+    "title": "json_decode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nNone",
+    "crumbs": [
+      "Reference",
+      "Decoder",
+      "json_decode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_decode_dir.html#raises",
+    "href": "reference/json_decode_dir.html#raises",
+    "title": "json_decode_dir",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nValueError\nIf the JSON data is invalid or the output directory cannot be created.",
+    "crumbs": [
+      "Reference",
+      "Decoder",
+      "json_decode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/json_decode_dir.html#examples",
+    "href": "reference/json_decode_dir.html#examples",
+    "title": "json_decode_dir",
+    "section": "",
+    "text": "&gt;&gt;&gt; json_decode_dir('{\"name\": \"file1.txt\", \"content\": \"Hello, World!\", \"type\": \"text\"}', '/path/to/output')\n# Decodes the JSON and creates the file `file1.txt` in the specified output directory.",
+    "crumbs": [
+      "Reference",
+      "Decoder",
+      "json_decode_dir"
+    ]
+  },
+  {
+    "objectID": "reference/preview.html",
+    "href": "reference/preview.html",
+    "title": "preview",
+    "section": "",
+    "text": "preview(ast, max_depth=999, compact=False, as_string=False)\nPrint a friendly representation of a griffe object (e.g. function, docstring)\n\n\n&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n..."
+  },
+  {
+    "objectID": "reference/preview.html#examples",
+    "href": "reference/preview.html#examples",
+    "title": "preview",
+    "section": "",
+    "text": "&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n..."
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Encode a directory to JSON\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format.\n\n\n\n\n\n\nDecode a JSON file to a directory\n\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#function-reference-1",
+    "href": "reference/index.html#function-reference-1",
+    "title": "Function reference",
+    "section": "",
+    "text": "Functions in dir2json.\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format.\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#encoder",
+    "href": "reference/index.html#encoder",
+    "title": "Function reference",
+    "section": "",
+    "text": "Encode a directory to JSON\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#decoder",
+    "href": "reference/index.html#decoder",
+    "title": "Function reference",
+    "section": "",
+    "text": "Decode a JSON file to a directory\n\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  }
+]

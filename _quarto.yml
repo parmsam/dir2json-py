@@ -1,0 +1,46 @@
+project:
+  type: website
+
+# tell quarto to read the generated sidebar
+metadata-files:
+  - _sidebar.yml
+
+website:
+  title: dir2json
+  site-url: https://parmsam.github.io/dir2json-py
+  repo-url: https://github.com/parmsam/dir2json-py
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: reference/home.qmd
+      - text: "Reference"
+        file: reference/index.qmd
+    tools:
+      - icon: github
+        href: https://github.com/posit-dev/py-shinyswatch
+
+quartodoc:
+  style: pkgdown
+  dir: reference
+  # the name used to import the package you want to create reference docs for
+  package: dir2json
+  # write sidebar data to this file
+  sidebar: _sidebar.yml
+  sections:
+    - title: Encoder
+      desc: Encode a directory to JSON
+      contents:
+        - json_encode_dir
+    - title: Decoder
+      desc: Decode a JSON file to a directory
+      contents:
+        - json_decode_dir
+
+format:
+  html:
+    respect-user-color-scheme: true
+    theme:
+      light: flatly
+      dark: darkly

@@ -1,0 +1,40 @@
+# json_encode_dir { #dir2json.json_encode_dir }
+
+```python
+json_encode_dir(
+    directory,
+    file_types=('text', 'binary'),
+    metadata=None,
+    ignore=None,
+)
+```
+
+Encode all files in a directory into a JSON format.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name       | Type         | Description                                                                                         | Default              |
+|------------|--------------|-----------------------------------------------------------------------------------------------------|----------------------|
+| directory  | str          | Path to the directory to encode.                                                                    | _required_           |
+| file_types | tuple of str | Tuple specifying file types to include ('text', 'binary'). Defaults to both.                        | `('text', 'binary')` |
+| metadata   | list of str  | List of metadata to include ('file_size', 'creation_time', 'last_modified_time'). Defaults to None. | `None`               |
+| ignore     | list of str  | List of file names to exclude from encoding. Defaults to None.                                      | `None`               |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                        |
+|--------|--------|----------------------------------------------------|
+|        | str    | JSON string representing the directory's contents. |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                |
+|--------|------------|--------------------------------------------|
+|        | ValueError | If the specified directory does not exist. |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> json_encode_dir('/path/to/dir', file_types=('text',), metadata=['file_size'])
+'{"name": "file1.txt", "content": "Hello, World!", "type": "text", "file_size": 123}'
+```

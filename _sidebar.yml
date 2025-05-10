@@ -1,0 +1,12 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/json_encode_dir.qmd
+      section: Encoder
+    - contents:
+      - reference/json_decode_dir.qmd
+      section: Decoder
+    id: reference
+  - id: dummy-sidebar

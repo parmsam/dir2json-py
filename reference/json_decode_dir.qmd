@@ -1,0 +1,33 @@
+# json_decode_dir { #dir2json.json_decode_dir }
+
+```python
+json_decode_dir(json_data, target_directory)
+```
+
+Decode a JSON representation of a directory back into its original structure.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name             | Type   | Description                                                  | Default    |
+|------------------|--------|--------------------------------------------------------------|------------|
+| json_data        | str    | JSON string representing the directory's contents.           | _required_ |
+| target_directory | str    | Path to the directory where the decoded files will be saved. | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description   |
+|--------|--------|---------------|
+|        | None   |               |
+
+## Raises {.doc-section .doc-section-raises}
+
+| Name   | Type       | Description                                                            |
+|--------|------------|------------------------------------------------------------------------|
+|        | ValueError | If the JSON data is invalid or the output directory cannot be created. |
+
+## Examples {.doc-section .doc-section-examples}
+
+```python
+>>> json_decode_dir('{"name": "file1.txt", "content": "Hello, World!", "type": "text"}', '/path/to/output')
+# Decodes the JSON and creates the file `file1.txt` in the specified output directory.
+```

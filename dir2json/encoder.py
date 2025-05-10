@@ -12,11 +12,31 @@ def json_encode_dir(
     """
     Encode all files in a directory into a JSON format.
 
-    :param directory: Path to the directory to encode.
-    :param file_types: Tuple specifying file types to include ('text', 'binary'). Defaults to both.
-    :param metadata: List of metadata to include ('file_size', 'creation_time', 'last_modified_time'). Defaults to None.
-    :param ignore: List of file names to exclude from encoding. Defaults to None.
-    :return: JSON string representing the directory's contents.
+    Parameters
+    ----------
+    directory : str
+        Path to the directory to encode.
+    file_types : tuple of str, optional
+        Tuple specifying file types to include ('text', 'binary'). Defaults to both.
+    metadata : list of str, optional
+        List of metadata to include ('file_size', 'creation_time', 'last_modified_time'). Defaults to None.
+    ignore : list of str, optional
+        List of file names to exclude from encoding. Defaults to None.
+
+    Returns
+    -------
+    str
+        JSON string representing the directory's contents.
+
+    Raises
+    ------
+    ValueError
+        If the specified directory does not exist.
+
+    Examples
+    --------
+    >>> json_encode_dir('/path/to/dir', file_types=('text',), metadata=['file_size'])
+    '{"name": "file1.txt", "content": "Hello, World!", "type": "text", "file_size": 123}'
     """
     if not os.path.isdir(directory):
         raise ValueError(f"The directory {directory} does not exist.")
@@ -64,7 +84,19 @@ def json_encode_dir(
     return json.dumps(bundle, indent=4)
 
 def text_file_extensions():
-    """Return a list of common text file extensions."""
+    """
+    Return a list of common text file extensions.
+
+    Returns
+    -------
+    set of str
+        A set of common text file extensions.
+
+    Examples
+    --------
+    >>> text_file_extensions()
+    {'py', 'txt', 'md', 'html', 'json', ...}
+    """
     return {
         "r", "rmd", "rnw", "rpres", "rhtml", "qmd",
         "py", "ipynb", "js", "ts", "jl", "sas",

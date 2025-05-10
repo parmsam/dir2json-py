@@ -21,3 +21,7 @@ dist/
 .idea/
 
 *.pyc
+
+/.quarto/
+README.html
+README_files/

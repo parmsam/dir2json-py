@@ -1,0 +1,17 @@
+# Function reference {.doc .doc-index}
+
+## Encoder
+
+Encode a directory to JSON
+
+| | |
+| --- | --- |
+| [json_encode_dir](json_encode_dir.qmd#dir2json.json_encode_dir) | Encode all files in a directory into a JSON format. |
+
+## Decoder
+
+Decode a JSON file to a directory
+
+| | |
+| --- | --- |
+| [json_decode_dir](json_decode_dir.qmd#dir2json.json_decode_dir) | Decode a JSON representation of a directory back into its original structure. |
