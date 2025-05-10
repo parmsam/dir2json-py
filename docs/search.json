@@ -222,17 +222,6 @@
     ]
   },
   {
-    "objectID": "reference/index.html#function-reference-1",
-    "href": "reference/index.html#function-reference-1",
-    "title": "Function reference",
-    "section": "",
-    "text": "Functions in dir2json.\n\n\n\njson_encode_dir\nEncode all files in a directory into a JSON format.\n\n\njson_decode_dir\nDecode a JSON representation of a directory back into its original structure.",
-    "crumbs": [
-      "Reference",
-      "Function reference"
-    ]
-  },
-  {
     "objectID": "reference/index.html#encoder",
     "href": "reference/index.html#encoder",
     "title": "Function reference",
