@@ -82,7 +82,7 @@ def json_encode_dir(
 
         bundle.append(file_info)
 
-    return json.dumps(bundle, indent=4)
+    return json.dumps(bundle, separators=(',', ':'))
 
 def text_file_extensions():
     """
