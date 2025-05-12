@@ -46,18 +46,7 @@ json_data = json_encode_dir(temp_dir, file_types=['text'])
 print(json_data)
 ```
 
-    [
-        {
-            "name": "example1.py",
-            "content": "print(\"Hello, World!\")",
-            "type": "text"
-        },
-        {
-            "name": "example2.py",
-            "content": "print(\"Hello, again!\")",
-            "type": "text"
-        }
-    ]
+    [{"name":"example1.py","content":"print(\"Hello, World!\")","type":"text"},{"name":"example2.py","content":"print(\"Hello, again!\")","type":"text"}]
 
 ### Decoding a JSON String
 
