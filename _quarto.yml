@@ -22,7 +22,7 @@ website:
         file: reference/index.qmd
     tools:
       - icon: github
-        href: https://github.com/posit-dev/py-shinyswatch
+        href: https://github.com/parmsam/dir2json-py
 
 quartodoc:
   style: pkgdown
